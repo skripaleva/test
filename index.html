@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TestProject</title>
+    <script src="scripts/script.js" defer></script>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header class="header">
+        <p class="header__text">Шапка сайта</p>
+    </header>
+    <main>
+        <section class="search">
+            <div class="search__input">
+                <input type="text" class="search__input-field" placeholder="Запрос пользователя">
+                <button type="submit" class="search__input-searchbtn">Найти</button>
+                <button class="search__input-closebtn">Закрыть</button>
+            </div>
+            <div class="search__results">
+                <div class="search__results_header">
+                    <h2>Результаты по запросу</h2>
+                    <p>Показаны результаты для “Запрос пользозвателя”. Вы искали “Зопрос пользователя”.</p>
+                </div>
+                <div class="search__results_categories">
+                    <div class="search__results_category">
+                        <img src="images/picture.png" alt="category">
+                        <div class="search__results_category-text">
+                            <p>Название категории</p>
+                            <p>134 товара</p>
+                        </div>
+                    </div>
+                    <div class="search__results_category">
+                        <img src="images/picture.png" alt="category">
+                        <div class="search__results_category-text">
+                            <p>Название категории</p>
+                            <p>134 товара</p>
+                        </div>
+                    </div>
+                    <div class="search__results_category">
+                        <img src="images/picture.png" alt="category">
+                        <div class="search__results_category-text">
+                            <p>Название категории</p>
+                            <p>134 товара</p>
+                        </div>
+                    </div>
+                    <div class="search__results_category">
+                        <img src="images/picture.png" alt="category">
+                        <div class="search__results_category-text">
+                            <p>Название категории</p>
+                            <p>134 товара</p>
+                        </div>
+                    </div>
+                    <div class="search__results_category">
+                        <img src="images/picture.png" alt="category">
+                        <div class="search__results_category-text">
+                            <p>Название категории</p>
+                            <p>134 товара</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="search__goods">
+                <div class="search__goods_sidebar">
+                    <div class="search__goods_sidebar-categories">
+                        <p>Все категории</p>
+                        <p><a href="#">Категория в которой нашли что-то <span>(ххх)</span></a></p>
+                        <p><a href="#">Категория в которой нашли что-то <span>(ххх)</span></a></p>
+                        <p><a href="#">Категория в которой нашли что-то <span>(ххх)</span></a></p>
+                        <p><a href="#">Категория в которой нашли что-то <span>(ххх)</span></a></p>
+                        <p><a href="#">Категория в которой нашли что-то <span>(ххх)</span></a></p>
+                        <p><a href="#">Категория в которой нашли что-то <span>(ххх)</span></a></p>
+                        <p><a href="#">Категория в которой нашли что-то <span>(ххх)</span></a></p>
+                        <p><a href="#">Категория в которой нашли что-то <span>(ххх)</span></a></p>
+                        <p><a href="#">Еще 10 категорий</a></p>
+                    </div>
+                    <div class="search__goods_sidebar-slider">
+                        <h4>Цена, валюта</h4>
+                        <p>от <input type="text" value="1000" id="inputMin"> до <input type="text" value="1000000" id="inputMax"> Р</p>
+                        <div class="slider">
+                            <div class="slider-min"></div>
+                            <div class="slider-max"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="search__goods_main"></div>
+            </div>
+
+        </section>
+    </main>
+</body>
+</html>
