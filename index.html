@@ -14,7 +14,9 @@
 </head>
 <body>
     <header class="header">
-        <p class="header__text">Шапка сайта</p>
+        <div class="header__wrap">
+            <p class="header__text">Шапка сайта</p>
+        </div>
     </header>
     <main>
         <section class="search">
@@ -82,31 +84,34 @@
                             <li><a href="#">Еще 10 категорий</a></li>
                         </ul>
                     </div>
-                    <div class="search__goods_sidebar-slider">
-                        <h4>Цена, валюта</h4>
-                        <p>от <input type="text" value="1000" id="inputMin"> до <input type="text" value="1000000" id="inputMax"> Р</p>
-                        <div class="slider">
-                            <div class="slider-min"></div>
-                            <div class="slider-max"></div>
+                    <div class="sidebar_wrapper">
+                        <div class="search__goods_sidebar-slider">
+                            <h4>Цена, валюта</h4>
+                            <p>от <input type="text" value="1000" id="inputMin"> до <input type="text" value="1000000" id="inputMax"> Р</p>
+                            <div class="slider">
+                                <div class="slider-min"></div>
+                                <div class="slider-max"></div>
+                            </div>
+                        </div>
+                        <div class="search__goods_sidebar-brands">
+                            <p>Бренды</p>
+                            <ul>
+                                <li class="search__goods_checkbox-group">
+                                    <input type="checkbox" value="Бренд (ххх)" id="check_1">
+                                    <label for="check_1">Бренд <span>(ххх)</span></label>
+                                </li>
+                                <li class="search__goods_checkbox-group">
+                                    <input type="checkbox" value="Бренд (ххх)" id="check_2">
+                                    <label for="check_2">Бренд <span>(х)</span></label>
+                                </li>
+                                <li class="search__goods_checkbox-group">
+                                    <input type="checkbox" value="Бренд (ххх)" id="check_3">
+                                    <label for="check_3">Бренд <span>(x ххх)</span></label>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="search__goods_sidebar-brands">
-                        <p>Бренды</p>
-                        <ul>
-                            <li class="search__goods_checkbox-group">
-                                <input type="checkbox" value="Бренд (ххх)" id="check_1">
-                                <label for="check_1">Бренд <span>(ххх)</span></label>
-                            </li>
-                            <li class="search__goods_checkbox-group">
-                                <input type="checkbox" value="Бренд (ххх)" id="check_2">
-                                <label for="check_2">Бренд <span>(х)</span></label>
-                            </li>
-                            <li class="search__goods_checkbox-group">
-                                <input type="checkbox" value="Бренд (ххх)" id="check_3">
-                                <label for="check_3">Бренд <span>(x ххх)</span></label>
-                            </li>
-                        </ul>
-                    </div>
+
                 </div>
                 <div class="search__goods_main">
                     <div class="search__goods_main-filter">

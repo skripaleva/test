@@ -1,6 +1,6 @@
 body {
     box-sizing: border-box;
-    max-width: 1280px;
+
     width: auto;
     margin: 0 auto;
 }
@@ -19,7 +19,7 @@ input::-webkit-input-placeholder {
     height: 100px;
     background-color: #000;
     padding-left: 24px;
-    margin-bottom: 5px;
+    /*margin-bottom: 5px;*/
 }
 
 .header__text {
@@ -31,7 +31,7 @@ input::-webkit-input-placeholder {
 }
 
 main {
-    padding: 0 40px 0 30px;
+    padding: 5px 40px 0 30px;
 }
 
 .search__input {
@@ -104,6 +104,7 @@ main {
     /*border: 1px dashed red;*/
     padding-left: 10px;
     margin-bottom: 5px;
+    overflow: auto;
 }
 
 .search__results_header {
@@ -119,8 +120,7 @@ main {
     line-height: 32px;
     color: #000000;
     margin: 0;
-    margin-right: 19px;
-    padding-right: 15px;
+    margin-right: 34px;
     font-weight: normal;
 }
 
@@ -209,9 +209,10 @@ main {
 
 .search__goods_sidebar {
     /*min-width: 300px;*/
-    width: 29%;
+    width: 24%;
     padding-left: 10px;
     /*border: 1px dashed red;*/
+    margin-right: 43px;
 }
 
 
@@ -269,29 +270,30 @@ main {
     /*opacity: 0.5;*/
     color: rgba(0, 0, 0, 0.5);
     margin-bottom: 19px;
+    white-space: nowrap;
 }
 
 .search__goods_sidebar-slider p input {
-    width: 110px;
+    width: 81px;
     height: 40px;
     border: 1px solid #DEDEDE;
     box-sizing: border-box;
     border-radius: 3px;
-    margin: 0 6px;
+    margin: 0 5px;
     font-family: Arial, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 16px;
     color: #000000;
-    padding-left: 14px;
+    padding-left: 8px;
     letter-spacing: 1px;
     /*opacity: 1 !important;*/
 }
 
 .slider {
     /*position: relative;*/
-    width: 290px;
+    width: 250px;
     height: 4px;
     background: #000000;
     border-radius: 30px;
@@ -309,12 +311,12 @@ main {
 
 .slider-min {
     top: -5px;
-    left: 14px;
+    left: 13px;
 }
 
 .slider-max {
     top: -20px;
-    left: 269px;
+    left: 224px;
 }
 
 .search__goods_sidebar-brands p {
@@ -513,7 +515,7 @@ main {
 }
 
 .search__goods_main-pagination {
-    padding-top: 41px;
+    padding-top: 42px;
     padding-bottom: 53px;
 }
 
@@ -525,7 +527,7 @@ main {
 }
 
 .search__goods_main-pagination span:first-child {
-    margin-right: 26px;
+    margin-right: 25px;
 }
 
 .search__goods_main-pagination span:nth-child(2) {
@@ -552,4 +554,120 @@ main {
     transform: rotate(-45deg);
     border-right: 1px solid black;
     border-bottom: 1px solid black;
+}
+
+@media (min-width: 1280px) {
+    main {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    .header__wrap {
+        width: 1280px;
+        margin: 0 auto;
+    }
+
+    .search__goods_sidebar-slider p input {
+        width: 110px;
+        margin: 0 5px 0 6px;
+        padding-left: 14px;
+    }
+
+    .slider {
+        /*position: relative;*/
+        width: 290px;
+    }
+    .slider-max {
+        left: 268px;
+    }
+
+}
+
+@media (max-width: 1024px) {
+    .search__results_header h2 {
+        font-size: 24px;
+        margin-right: 15px;
+    }
+
+    .search__results_header p {
+        font-size: 12px;
+    }
+
+    .search__goods_main-filter a {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .search__goods_sidebar {
+        width: 29%;
+        margin-right: 30px;
+    }
+
+    .search__goods_sidebar-slider p input {
+        height: 35px;
+        margin: 0 4px;
+    }
+
+    .slider {
+        width: 210px;
+    }
+
+    .slider-max {
+        left: 184px;
+    }
+}
+
+@media (max-width: 860px) {
+    main {
+        padding: 5px 35px 0 25px;
+
+    }
+    .search__results_header h2 {
+        font-size: 18px;
+    }
+
+    .search__results_header p {
+        font-size: 11px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 860px) {
+    .search__goods_sidebar-slider p input {
+        width: 74px;
+        height: 30px;
+        padding-left: 4px;
+
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 5px 30px 0 20px;
+    }
+
+    .search__goods {
+        flex-direction: column;
+    }
+
+    .search__goods_sidebar, .search__goods_main {
+        width: 100%;
+    }
+
+    .search__goods_sidebar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding-left: 0;
+    }
+
+    .search__goods_sidebar-categories {
+
+        order: 1;
+    }
+
+    .sidebar_wrapper {
+        order: 0;
+        /*margin-right: 40px;*/
+    }
+
 }
