@@ -1,39 +1,86 @@
 const slider = document.querySelector('.slider');
-const sliderMin = document.querySelector('.slider-min');
-const sliderMax = document.querySelector('.slider-max');
+const sliderMin = document.getElementById('sliderMin');
+const sliderMax = document.getElementById('sliderMax');
 const inputMin = document.getElementById('inputMin');
 const inputMax = document.getElementById('inputMax');
+const sliderHandleSize = 13;
+const sliderBegin = 13;
+const minCost = 1000;
+const maxCost = 1000000;
+const arrInputs = [inputMin, inputMax];
+const arrSliders = [sliderMin, sliderMax];
 
-const ar = [sliderMin, sliderMax];
-ar.forEach((e) => {
-    e.onmousedown = function (event) {
-        event.preventDefault(); // предотвратить запуск выделения (действие браузера)
+arrInputs.forEach((inputObj) => {
+    inputObj.oninput = (event) => {
+        event.preventDefault();
+        const sliderWidth = slider.offsetWidth;
+        const sliderEnd = sliderWidth - sliderHandleSize * 2;
+        const sliderLength = sliderEnd - sliderBegin;
 
-        let shiftX = event.clientX - e.getBoundingClientRect().left;
-        // shiftY здесь не нужен, слайдер двигается только по горизонтали
+
+        if (inputObj.value < minCost) {
+            inputObj.value = minCost;
+        }
+
+        if (inputObj.value > maxCost) {
+            inputObj.value = maxCost;
+        }
+
+        document.getElementById('slider' + inputObj.id.substr(5)).style.left = String(Math.floor(inputObj.value * sliderLength / maxCost) + sliderHandleSize) + 'px';
+    }
+});
+
+arrSliders.forEach((sliderObj) => {
+    sliderObj.onmousedown = (event) => {
+        event.preventDefault();
+        let previousValue;
+        if (sliderObj.id === 'sliderMin') {
+            previousValue = document.getElementById('inputMax').value;
+        } else {
+            previousValue = document.getElementById('inputMin').value;
+        }
+
+        let shiftX = event.clientX - sliderObj.getBoundingClientRect().left;
 
         document.addEventListener('mousemove', onMouseMove);
         document.addEventListener('mouseup', onMouseUp);
 
         function onMouseMove(event) {
+            const sliderWidth = slider.offsetWidth;
+            const sliderEnd = sliderWidth - sliderHandleSize * 2;
+            const sliderLength = sliderEnd - sliderBegin;
+            const rightEdge = slider.offsetWidth - sliderObj.offsetWidth;
             let newLeft = event.clientX - shiftX - slider.getBoundingClientRect().left;
 
-            // курсор вышел из слайдера => оставить бегунок в его границах.
             if (newLeft < 0) {
                 newLeft = 0;
             }
-            let rightEdge = slider.offsetWidth - e.offsetWidth;
+
             if (newLeft > rightEdge) {
                 newLeft = rightEdge;
             }
 
-            if (e.getAttribute('class') === 'slider-min') {
-                inputMin.setAttribute('value', String(Math.floor(newLeft/276*1000000)));
-            } else {
-                inputMax.setAttribute('value', String(Math.floor(newLeft/276*1000000)));
-            }
+            let newCost = (Math.floor((newLeft - sliderHandleSize) / sliderLength * maxCost));
 
-            e.style.left = newLeft + 'px';
+            if (sliderObj.id === 'sliderMin') {
+                if ((newLeft >= sliderBegin) && (newLeft < sliderEnd-sliderHandleSize)) {
+                    if (newCost < previousValue) {
+                        if (newLeft === sliderBegin) {
+                            newCost = minCost;
+                        }
+
+                        document.getElementById('input' + sliderMin.id.substr(6)).value = String(newCost);
+                        sliderMin.style.left = newLeft + 'px';
+                    }
+                }
+            } else {
+                if ((newLeft > sliderBegin+sliderHandleSize) && (newLeft <= sliderEnd)) {
+                    if (newCost > previousValue) {
+                        document.getElementById('input' + sliderMax.id.substr(6)).value = String(newCost);
+                        sliderMax.style.left = newLeft + 'px';
+                    }
+                }
+            }
         }
 
         function onMouseUp() {
@@ -41,57 +88,4 @@ ar.forEach((e) => {
             document.removeEventListener('mousemove', onMouseMove);
         }
     }
-
-    e.ondragstart = function() {
-        return false;
-    };
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let startCursorX;
-// let startX;
-// // let maxX;
-// // maxX = sliderMax.style;
-// // console.log('maxX', maxX);
-//
-// sliderMin.addEventListener('dragstart',function() {
-//     startCursorX = event.pageX;//Начальная позиция курсора по оси X
-//     //startCursorY = event.pageY;//Начальная позиция курсора по оси Y
-//     startX = sliderMin.style.left.replace('px','')*1; // Нам нужны только цыфры без PX
-//     //console.log(startCursorX);
-//     console.log(startX);
-//
-//
-//     //startY = sliderMin.style.marginTop.replace('px','')*1;
-// });
-// sliderMin.addEventListener('dragend',function() {
-//     //sliderMin.style.position = 'absolute';//CSS теперь элемент "Блуждающий" :)
-//     if ( startX < 0) {
-//         sliderMin.style.left = 0 + 'px';
-//     } else {
-//         sliderMin.style.left = startX + event.pageX - startCursorX + 'px'; //позиция элемента + позиция курсора - позиция курсоа в начале перетаскивания
-//     }
-// });
+});

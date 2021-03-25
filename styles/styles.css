@@ -15,6 +15,8 @@ button:hover {
 
 .search__goods_main-grid button:hover, .search__input-closebtn:hover {
     transform: translate(1px,1px);
+    -moz-transform: translate(1px,1px);
+    -webkit-transform: translate(1px,1px);
 }
 
 .search__input-searchbtn:hover {
@@ -164,6 +166,10 @@ main {
     display: flex;
     padding-left: 0;
     list-style: none;
+}
+
+.search__results_category:last-child {
+    max-width: 200px;
 }
 
 .search__results_category a {
@@ -337,7 +343,7 @@ main {
 }
 
 .slider-max {
-    top: -20px;
+    top: -19px;
     left: 224px;
 }
 
@@ -484,7 +490,7 @@ main {
 
 .search__goods_main-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
     grid-column-gap: 44px;
     grid-row-gap: 37px;
 }
@@ -586,6 +592,8 @@ main {
     width: 10px;
     height: 10px;
     transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
     border-right: 1px solid black;
     border-bottom: 1px solid black;
 }
@@ -752,6 +760,12 @@ main {
     .search__goods_sidebar-brands {
         margin-right: 20px;
     }
+
+    .search__goods_main-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -803,12 +817,6 @@ main {
         width: 70%;
         align-self: center;
         justify-content: flex-end;
-    }
-
-    .search__goods_main-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        grid-column-gap: 20px;
-        grid-row-gap: 20px;
     }
 }
 

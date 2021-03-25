@@ -97,10 +97,16 @@
                     <div class="sidebar_wrapper">
                         <div class="search__goods_sidebar-slider">
                             <h4>Цена, валюта</h4>
-                            <p>от <input type="text" value="1000" id="inputMin"> до <input type="text" value="1000000" id="inputMax"> Р</p>
+                            <p>
+                                <label for="inputMin">от</label>
+                                <input type="text" value="1000" id="inputMin">
+                                <label for="inputMax">до</label>
+                                <input type="text" value="1000000" id="inputMax">
+                                Р
+                            </p>
                             <div class="slider">
-                                <div class="slider-min"></div>
-                                <div class="slider-max"></div>
+                                <div id="sliderMin" class="slider-min"></div>
+                                <div id="sliderMax" class="slider-max"></div>
                             </div>
                         </div>
                         <div class="search__goods_sidebar-brands">
@@ -255,7 +261,6 @@
                     </div>
                 </div>
             </div>
-
         </section>
     </main>
 </body>
